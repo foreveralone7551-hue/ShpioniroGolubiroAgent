@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: shpionirogolubiroagent
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python main.py
+    healthCheckPath: /
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.8
+      - key: BOT_TOKEN
+        sync: false
+      - key: TZ
+        value: Europe/Moscow
+      - key: USE_TOPICS
+        value: "1"
